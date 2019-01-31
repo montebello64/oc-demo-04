@@ -1,12 +1,13 @@
 
 
+ 
+
 
 docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE='openshift' --network=oc-demo-04 --name=rest-consumer montebello64/oc-demo-04-rest-consumer 
 
 docker run -d -p 9001:9001 -e SPRING_PROFILES_ACTIVE='openshift' --network=oc-demo-04 --name=rest-name montebello64/oc-demo-04-rest-name
 
 docker run -d -p 9002:9002 -e SPRING_PROFILES_ACTIVE='openshift' --network=oc-demo-04 --name=rest-greeting montebello64/oc-demo-04-rest-greeting
-
 
 
 docker network inspect oc-demo-04

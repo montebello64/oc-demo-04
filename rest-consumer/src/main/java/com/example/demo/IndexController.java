@@ -50,6 +50,7 @@ public class IndexController {
 
 	@GetMapping("/")
 	public String index(Model model) {
+		logger.info("---------------------------------------------------");
 		model.addAttribute("greeting", randomRestGreeting());
 		model.addAttribute("name", randomRestName());
 		model.addAttribute("hostname", getHostname());

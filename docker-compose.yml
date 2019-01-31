@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  rest-consumer:
+    build: ./rest-consumer  
+    ports:
+     - "8080:8080"
+    environment:
+     - SPRING_PROFILES_ACTIVE=openshift
+
+  rest-name:
+    build: ./rest-name
+    ports:
+     - "9001:9001"
+    environment:
+     - SPRING_PROFILES_ACTIVE=openshift
+
+  rest-greeting:
+    build: ./rest-greeting
+    ports:
+     - "9002:9002"
+    environment:
+     - SPRING_PROFILES_ACTIVE=openshift
