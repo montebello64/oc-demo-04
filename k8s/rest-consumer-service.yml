@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rest-consumer
+spec:
+  selector:
+    app: rest-consumer
+  ports:
+  - protocol: TCP
+    port: 8080
+  type: NodePort

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rest-name
+spec:
+  selector:
+    app: rest-name
+  ports:
+  - protocol: TCP
+    port: 9001
+  type: NodePort

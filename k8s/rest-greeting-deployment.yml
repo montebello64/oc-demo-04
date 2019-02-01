@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-greeting
+spec:
+  selector:
+      matchLabels:
+        app: rest-greeting
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rest-greeting
+    spec:
+      containers:
+        - name: rest-greeting
+          image: rest-greeting:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "openshift"
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9002

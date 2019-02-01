@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-name
+spec:
+  selector:
+      matchLabels:
+        app: rest-name
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rest-name
+    spec:
+      containers:
+        - name: rest-name
+          image: rest-name:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "openshift"
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9001

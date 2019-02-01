@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-consumer
+spec:
+  selector:
+      matchLabels:
+        app: rest-consumer
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rest-consumer
+    spec:
+      containers:
+        - name: rest-consumer
+          image: rest-consumer:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "openshift"
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

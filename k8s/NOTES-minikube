@@ -1,0 +1,34 @@
+
+
+eval $(minikube docker-env)
+
+rest-name$ docker build -t rest-name .
+
+
+# rest-name 
+
+# –image-pull-policy Never >>> takes image from the local Docker host 
+kubectl run rest-name --image=rest-name:latest --port=9001 --image-pull-policy Never
+
+kubectl expose deployment rest-name --type=NodePort
+
+minikube service rest-name
+
+
+
+minikube service rest-greeting
+
+minikube service rest-consumer
+
+ 
+############################
+
+kubectl cluster-info 
+
+kubectl get deployments 
+
+kubectl get pods 
+
+kubectl get services 
+
+
